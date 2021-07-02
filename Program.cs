@@ -22,7 +22,7 @@ namespace MaxQuantParamFileModExtractor
             var cmdLineParser = new CommandLineParser<ModExtractorOptions>(programName, GetAppVersion())
             {
                 ProgramInfo = ConsoleMsgUtils.WrapParagraph(
-                                   "This parses a MaxQuant parameter file (XML-based) to extract the nodes that define static and dynamic mods."),
+                                   "This program parses a MaxQuant parameter file (XML-based) to extract the nodes that define static and dynamic mods."),
                 ContactInfo = "Program written by Matthew Monroe for PNNL (Richland, WA) in 2021" + Environment.NewLine +
                                              "E-mail: matthew.monroe@pnnl.gov or proteomics@pnnl.gov" + Environment.NewLine +
                                              "Website: https://omics.pnl.gov/ or https://panomics.pnnl.gov/"
@@ -31,7 +31,7 @@ namespace MaxQuantParamFileModExtractor
             // ReSharper disable StringLiteralTypo
 
             cmdLineParser.UsageExamples.Add(exeName + " MaxQuant_Tryp_Stat_CysAlk_Dyn_MetOx_NTermAcet_20ppmParTol.xml");
-            cmdLineParser.UsageExamples.Add(exeName + " /I:MaxQuant_Tryp_Stat_CysAlk_Dyn_MetOx_NTermAcet_20ppmParTol.xml");
+            cmdLineParser.UsageExamples.Add(exeName + " /I:MaxQuant*.xml");
 
             // ReSharper restore StringLiteralTypo
 

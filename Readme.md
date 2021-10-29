@@ -11,17 +11,17 @@ The output from this program can be used when adding a new MaxQuant parameter fi
 Example MaxQuant parameter files are in the Docs directory
 
 Example output:
-```
-     <variableModifications>
-         <string>Oxidation (M)</string>
-         <string>Acetyl (Protein N-term)</string>
-     </variableModifications>
-     <isobaricLabels>
-        <IsobaricLabelInfo>
-           <internalLabel>TMT10plex-Lys126C</internalLabel>
-           <internalLabel>TMT10plex-Nter126C</internalLabel>
-        </IsobaricLabelInfo>
-     </isobaricLabels>
+```XML
+    <variableModifications>
+        <string>Oxidation (M)</string>
+        <string>Acetyl (Protein N-term)</string>
+    </variableModifications>
+    <isobaricLabels>
+       <IsobaricLabelInfo>
+          <internalLabel>TMT10plex-Lys126C</internalLabel>
+          <terminalLabel>TMT10plex-Nter126C</terminalLabel>
+       </IsobaricLabelInfo>
+    </isobaricLabels>    
 ```
 
 ## Example Command line 

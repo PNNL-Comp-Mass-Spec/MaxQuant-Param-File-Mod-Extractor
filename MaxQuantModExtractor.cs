@@ -9,7 +9,7 @@ namespace MaxQuantParamFileModExtractor
 {
     internal class MaxQuantModExtractor : EventNotifier
     {
-        // Ignore Spelling: acetyl, carbamidomethyl, plex
+        // Ignore Spelling: acetyl, acetylation, carbamidomethyl, plex
 
         public ModExtractorOptions Options { get; set; }
 

@@ -207,7 +207,7 @@ namespace MaxQuantParamFileModExtractor
 
                         if (terminalIsobaricLabelNodes.Count > 0)
                         {
-                            Console.WriteLine("               <internalLabel>{0}</internalLabel>", terminalIsobaricLabelNodes[0].Value);
+                            Console.WriteLine("               <terminalLabel>{0}</terminalLabel>", terminalIsobaricLabelNodes[0].Value);
                         }
 
                         Console.WriteLine("            </IsobaricLabelInfo>");

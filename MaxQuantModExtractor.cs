@@ -140,6 +140,8 @@ namespace MaxQuantParamFileModExtractor
 
                 // ReSharper restore CommentTypo
 
+                var restrictModNodes = doc.Elements("MaxQuantParams").Elements("restrictMods").Elements("string").ToList();
+
                 var parameterGroupNodes = doc.Elements("MaxQuantParams").Elements("parameterGroups").Elements("parameterGroup").ToList();
 
                 // ReSharper disable once ConvertIfStatementToSwitchStatement
@@ -234,6 +236,30 @@ namespace MaxQuantParamFileModExtractor
                 }
 
                 Console.WriteLine();
+
+                // Check whether any mods in the <restrictMods> section are other than oxidation or N-terminal acetylation
+                foreach (var modName in restrictModNodes.Select(dynamicMod => dynamicMod.Value))
+                {
+                    if (modName.Equals("Oxidation (M)") || modName.Equals("Acetyl (Protein N-term)"))
+                        continue;
+
+                    ConsoleMsgUtils.ShowWarning(
+                        "Dynamic mod {0} is defined in the <restrictMods> section, which means it will be considered during protein quantification;\n" +
+                        "  typically, only oxidized methionine and N-terminal acetylation should be defined here",
+                        modName);
+                }
+
+                // Look for mods in the <restrictMods> section that are not in a dynamic mod defined for the main search
+                foreach (var modName in restrictModNodes.Select(dynamicMod => dynamicMod.Value))
+                {
+                    if (!dynamicMods.Contains(modName))
+                    {
+                        ConsoleMsgUtils.ShowWarning(
+                            "Dynamic mod {0} is defined in the <restrictMods> section, but is not defined in the <variableModifications> section;\n" +
+                            "  this is likely an error",
+                            modName);
+                    }
+                }
 
                 return true;
             }

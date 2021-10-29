@@ -50,7 +50,7 @@ namespace MaxQuantParamFileModExtractor
 
                     if (filesToProcess.Count == 0)
                     {
-                        OnWarningEvent(string.Format("No files matching {0} were found in {1}", fileMask, placeholderFile.Directory.FullName));
+                        OnWarningEvent("No files matching {0} were found in {1}", fileMask, placeholderFile.Directory.FullName);
                         return false;
                     }
                 }
@@ -59,7 +59,7 @@ namespace MaxQuantParamFileModExtractor
                     filesToProcess.Add(new FileInfo(inputFilePath));
                     if (!filesToProcess[0].Exists)
                     {
-                        OnWarningEvent(string.Format("File not found: {0}", inputFilePath));
+                        OnWarningEvent("File not found: {0}", inputFilePath);
                         return false;
                     }
                 }
@@ -80,15 +80,15 @@ namespace MaxQuantParamFileModExtractor
                         return true;
 
                     case 1:
-                        OnWarningEvent(string.Format("Error processing {0}", failedFiles[0]));
+                        OnWarningEvent("Error processing {0}", failedFiles[0]);
                         return false;
                 }
 
-                OnWarningEvent(string.Format("Error processing {0} files", failedFiles.Count));
+                OnWarningEvent("Error processing {0} files", failedFiles.Count);
 
                 foreach (var file in failedFiles)
                 {
-                    OnStatusEvent(string.Format("  {0}", PathUtils.CompactPathString(file.FullName, 100)));
+                    OnStatusEvent("  {0}", PathUtils.CompactPathString(file.FullName, 100));
                 }
 
                 return false;
@@ -105,7 +105,7 @@ namespace MaxQuantParamFileModExtractor
             try
             {
                 Console.WriteLine();
-                OnStatusEvent(string.Format("Reading: {0}", PathUtils.CompactPathString(inputFile.FullName, 100)));
+                OnStatusEvent("Reading: {0}", PathUtils.CompactPathString(inputFile.FullName, 100));
 
                 using var reader = new StreamReader(new FileStream(inputFile.FullName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite));
 

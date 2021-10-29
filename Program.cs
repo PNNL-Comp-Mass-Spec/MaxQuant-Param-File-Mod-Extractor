@@ -10,7 +10,7 @@ namespace MaxQuantParamFileModExtractor
     /// </summary>
     internal static class Program
     {
-        public const string PROGRAM_DATE = "July 2, 2021";
+        public const string PROGRAM_DATE = "October 29, 2021";
 
         // Ignore Spelling: Conf
 
@@ -25,7 +25,7 @@ namespace MaxQuantParamFileModExtractor
                                    "This program parses a MaxQuant parameter file (XML-based) to extract the nodes that define static and dynamic mods."),
                 ContactInfo = "Program written by Matthew Monroe for PNNL (Richland, WA) in 2021" + Environment.NewLine +
                                              "E-mail: matthew.monroe@pnnl.gov or proteomics@pnnl.gov" + Environment.NewLine +
-                                             "Website: https://omics.pnl.gov/ or https://panomics.pnnl.gov/"
+                                             "Website: https://github.com/PNNL-Comp-Mass-Spec/ or https://panomics.pnnl.gov/ or https://www.pnnl.gov/integrative-omics"
             };
 
             // ReSharper disable StringLiteralTypo

@@ -123,7 +123,7 @@
    <writeMzRangeTable>True</writeMzRangeTable>
    <writeDiaFragmentTable>False</writeDiaFragmentTable>
    <writeDiaFragmentQuantTable>False</writeDiaFragmentQuantTable>
-   <writeMzTab>False</writeMzTab>
+   <writeMzTab>True</writeMzTab>
    <disableMd5>False</disableMd5>
    <cacheBinInds>True</cacheBinInds>
    <etdIncludeB>False</etdIncludeB>

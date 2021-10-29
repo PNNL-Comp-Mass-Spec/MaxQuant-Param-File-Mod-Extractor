@@ -155,6 +155,8 @@ namespace MaxQuantParamFileModExtractor
 
                 Console.WriteLine();
 
+                var dynamicMods = new SortedSet<string>();
+
                 var groupNumber = 0;
                 foreach (var parameterGroup in parameterGroupNodes)
                 {
@@ -164,11 +166,11 @@ namespace MaxQuantParamFileModExtractor
                         Console.WriteLine("Parameter group {0}", groupNumber);
                     }
 
+                    var firstSearchDynamicModNodes = parameterGroup.Elements("variableModificationsFirstSearch").Elements("string").ToList();
+
                     var fixedModNodes = parameterGroup.Elements("fixedModifications").Elements("string").ToList();
 
-                    // Note that dynamicModNodes tracks both normal variable mods and first-search-only variable mods
                     var dynamicModNodes = parameterGroup.Elements("variableModifications").Elements("string").ToList();
-                    dynamicModNodes.AddRange(parameterGroup.Elements("variableModificationsFirstSearch").Elements("string"));
 
                     // Check for isobaric mods, e.g. 6-plex or 10-plex TMT
                     var internalIsobaricLabelNodes = parameterGroup.Elements("isobaricLabels").Elements("IsobaricLabelInfo").Elements("internalLabel").ToList();
@@ -185,13 +187,26 @@ namespace MaxQuantParamFileModExtractor
                         Console.WriteLine("    </fixedModifications>");
                     }
 
-                    if (dynamicModNodes.Count > 0)
+                    if (dynamicModNodes.Count > 0 || firstSearchDynamicModNodes.Count > 0)
                     {
-                        foreach (var dynamicMod in dynamicModNodes)
                         Console.WriteLine("    <variableModifications>");
+
+                        foreach (var modName in dynamicModNodes.Select(dynamicMod => dynamicMod.Value))
                         {
                             Console.WriteLine("        <string>{0}</string>", modName);
 
+                            if (!dynamicMods.Contains(modName))
+                            {
+                                dynamicMods.Add(modName);
+                            }
+                        }
+
+                        foreach (var modName in firstSearchDynamicModNodes.Select(dynamicMod => dynamicMod.Value))
+                        {
+                            if (dynamicMods.Contains(modName))
+                                continue;
+
+                            Console.WriteLine("        <string>{0}</string>", modName);
                         }
 
                         Console.WriteLine("    </variableModifications>");

@@ -177,41 +177,43 @@ namespace MaxQuantParamFileModExtractor
 
                     if (fixedModNodes.Count > 0)
                     {
-                        Console.WriteLine("         <fixedModifications>");
+                        Console.WriteLine("    <fixedModifications>");
                         foreach (var fixedMod in fixedModNodes)
                         {
-                            Console.WriteLine("             <string>{0}</string>", fixedMod.Value);
+                            Console.WriteLine("        <string>{0}</string>", fixedMod.Value);
                         }
-                        Console.WriteLine("         </fixedModifications>");
+                        Console.WriteLine("    </fixedModifications>");
                     }
 
                     if (dynamicModNodes.Count > 0)
                     {
-                        Console.WriteLine("         <variableModifications>");
                         foreach (var dynamicMod in dynamicModNodes)
+                        Console.WriteLine("    <variableModifications>");
                         {
-                            Console.WriteLine("             <string>{0}</string>", dynamicMod.Value);
+                            Console.WriteLine("        <string>{0}</string>", modName);
+
                         }
-                        Console.WriteLine("         </variableModifications>");
+
+                        Console.WriteLine("    </variableModifications>");
                     }
 
                     if (internalIsobaricLabelNodes.Count > 0 || terminalIsobaricLabelNodes.Count > 0)
                     {
-                        Console.WriteLine("         <isobaricLabels>");
-                        Console.WriteLine("            <IsobaricLabelInfo>");
+                        Console.WriteLine("    <isobaricLabels>");
+                        Console.WriteLine("       <IsobaricLabelInfo>");
 
                         if (internalIsobaricLabelNodes.Count > 0)
                         {
-                            Console.WriteLine("               <internalLabel>{0}</internalLabel>", internalIsobaricLabelNodes[0].Value);
+                            Console.WriteLine("          <internalLabel>{0}</internalLabel>", internalIsobaricLabelNodes[0].Value);
                         }
 
                         if (terminalIsobaricLabelNodes.Count > 0)
                         {
-                            Console.WriteLine("               <terminalLabel>{0}</terminalLabel>", terminalIsobaricLabelNodes[0].Value);
+                            Console.WriteLine("          <terminalLabel>{0}</terminalLabel>", terminalIsobaricLabelNodes[0].Value);
                         }
 
-                        Console.WriteLine("            </IsobaricLabelInfo>");
-                        Console.WriteLine("         </isobaricLabels>");
+                        Console.WriteLine("       </IsobaricLabelInfo>");
+                        Console.WriteLine("    </isobaricLabels>");
                     }
                 }
 

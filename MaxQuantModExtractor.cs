@@ -142,6 +142,7 @@ namespace MaxQuantParamFileModExtractor
 
                 var parameterGroupNodes = doc.Elements("MaxQuantParams").Elements("parameterGroups").Elements("parameterGroup").ToList();
 
+                // ReSharper disable once ConvertIfStatementToSwitchStatement
                 if (parameterGroupNodes.Count == 0)
                 {
                     OnWarningEvent("MaxQuant parameter file is missing the <parameterGroup> element; cannot extract modification info");
@@ -150,7 +151,7 @@ namespace MaxQuantParamFileModExtractor
 
                 if (parameterGroupNodes.Count > 1)
                 {
-                    OnWarningEvent("MaxQuant parameter file has more than one <parameterGroup> element; this is unexpected");
+                    OnWarningEvent("MaxQuant parameter file has more than one <parameterGroup> element; this is allowed, but not usually used");
                 }
 
                 Console.WriteLine();

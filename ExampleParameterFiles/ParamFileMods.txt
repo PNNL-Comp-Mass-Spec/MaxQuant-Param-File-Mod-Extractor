@@ -1,47 +1,96 @@
 
-Reading: F:\...\DataMi..\MaxQuantParamFileModExtractor\Docs\MaxQuant_Tryp_Dyn_MetOx_NTermAcet_20ppmParTol.xml
+Reading: F:\...\MaxQuantParamFileMo..\ExampleParameterFiles\MaxQuant_Tryp_Dyn_MetOx_NTermAcet_20ppmParTol.xml
 
-         <variableModifications>
-             <string>Oxidation (M)</string>
-             <string>Acetyl (Protein N-term)</string>
-         </variableModifications>
-
-
-Reading: F:\...\MaxQuantParamFileMod..\Docs\MaxQuant_Tryp_Dyn_MetOx_NTermAcet_Stat_TMT_10Plex_20ppmParTol.xml
-
-         <variableModifications>
-             <string>Oxidation (M)</string>
-             <string>Acetyl (Protein N-term)</string>
-         </variableModifications>
-         <isobaricLabels>
-            <IsobaricLabelInfo>
-               <internalLabel>TMT10plex-Lys126C</internalLabel>
-               <internalLabel>TMT10plex-Nter126C</internalLabel>
-            </IsobaricLabelInfo>
-         </isobaricLabels>
+    <variableModifications>
+        <string>Oxidation (M)</string>
+        <string>Acetyl (Protein N-term)</string>
+    </variableModifications>
 
 
-Reading: F:\...\MaxQuantParamFileMod..\Docs\MaxQuant_Tryp_Dyn_MetOx_NTermAcet_Stat_TMT_16Plex_20ppmParTol.xml
+Reading: F:\...\ExampleParameterFiles\MaxQuant_Tryp_Dyn_MetOx_NTermAcet_Stat_CysAlk_LFQ_MBR_20ppmParTol.xml
 
-         <variableModifications>
-             <string>Oxidation (M)</string>
-             <string>Acetyl (Protein N-term)</string>
-         </variableModifications>
-         <isobaricLabels>
-            <IsobaricLabelInfo>
-               <internalLabel>TMTpro16plex-Lys126C</internalLabel>
-               <internalLabel>TMTpro16plex-Nter126C</internalLabel>
-            </IsobaricLabelInfo>
-         </isobaricLabels>
+    <fixedModifications>
+        <string>Carbamidomethyl (C)</string>
+    </fixedModifications>
+    <variableModifications>
+        <string>Oxidation (M)</string>
+        <string>Acetyl (Protein N-term)</string>
+    </variableModifications>
 
 
-Reading: F:\...\MaxQuantParamFileModExtr..\Docs\MaxQuant_Tryp_Stat_CysAlk_Dyn_MetOx_NTermAcet_20ppmParTol.xml
+Reading: F:\...\ExampleParameterFiles\MaxQuant_Tryp_Dyn_MetOx_NTermAcet_Stat_CysAlk_TMT_6Plex_20ppmParTol.xml
 
-         <fixedModifications>
-             <string>Carbamidomethyl (C)</string>
-         </fixedModifications>
-         <variableModifications>
-             <string>Oxidation (M)</string>
-             <string>Acetyl (Protein N-term)</string>
-         </variableModifications>
+    <fixedModifications>
+        <string>Carbamidomethyl (C)</string>
+    </fixedModifications>
+    <variableModifications>
+        <string>Oxidation (M)</string>
+        <string>Acetyl (Protein N-term)</string>
+    </variableModifications>
+    <isobaricLabels>
+       <IsobaricLabelInfo>
+          <internalLabel>TMT6plex-Lys126</internalLabel>
+          <terminalLabel>TMT6plex-Nter126</terminalLabel>
+       </IsobaricLabelInfo>
+    </isobaricLabels>
+
+
+Reading: F:\...\Max..\ExampleParameterFiles\MaxQuant_Tryp_Dyn_MetOx_NTermAcet_Stat_TMT_10Plex_20ppmParTol.xml
+
+    <variableModifications>
+        <string>Oxidation (M)</string>
+        <string>Acetyl (Protein N-term)</string>
+    </variableModifications>
+    <isobaricLabels>
+       <IsobaricLabelInfo>
+          <internalLabel>TMT10plex-Lys126C</internalLabel>
+          <terminalLabel>TMT10plex-Nter126C</terminalLabel>
+       </IsobaricLabelInfo>
+    </isobaricLabels>
+
+
+Reading: F:\...\Max..\ExampleParameterFiles\MaxQuant_Tryp_Dyn_MetOx_NTermAcet_Stat_TMT_16Plex_20ppmParTol.xml
+
+    <variableModifications>
+        <string>Oxidation (M)</string>
+        <string>Acetyl (Protein N-term)</string>
+    </variableModifications>
+    <isobaricLabels>
+       <IsobaricLabelInfo>
+          <internalLabel>TMTpro16plex-Lys126C</internalLabel>
+          <terminalLabel>TMTpro16plex-Nter126C</terminalLabel>
+       </IsobaricLabelInfo>
+    </isobaricLabels>
+
+
+Reading: F:\...\Max..\ExampleParameterFiles\MaxQuant_Tryp_Dyn_MetOx_NTermAcet_STYPhos_LFQ_MBR_20ppmParTol.xml
+
+    <variableModifications>
+        <string>Oxidation (M)</string>
+        <string>Acetyl (Protein N-term)</string>
+        <string>Phospho (STY)</string>
+    </variableModifications>
+
+
+Reading: F:\...\E..\MaxQuant_Tryp_Dyn_MetOx_NTermAcet_STYPhos_LF..oteinQuant_Includes_STYPhos_20ppmParTol.xml
+
+    <variableModifications>
+        <string>Oxidation (M)</string>
+        <string>Acetyl (Protein N-term)</string>
+        <string>Phospho (STY)</string>
+    </variableModifications>
+
+
+Dynamic mod Phospho (STY) is defined in the <restrictMods> section, which means it will be considered during protein quantification;
+  typically, only oxidized methionine and N-terminal acetylation should be defined here
+
+Reading: F:\...\MaxQuan..\ExampleParameterFiles\MaxQuant_Tryp_Stat_CysAlk_Dyn_MetOx_NTermAcet_20ppmParTol.xml
+
+    <fixedModifications>
+        <string>Carbamidomethyl (C)</string>
+    </fixedModifications>
+    <variableModifications>
+        <string>Oxidation (M)</string>
+        <string>Acetyl (Protein N-term)</string>
+    </variableModifications>
 

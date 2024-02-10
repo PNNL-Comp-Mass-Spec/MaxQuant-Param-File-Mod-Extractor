@@ -10,20 +10,21 @@ namespace MaxQuantParamFileModExtractor
     /// </summary>
     internal static class Program
     {
-        public const string PROGRAM_DATE = "November 11, 2021";
+        // Ignore Spelling: Conf, Quant
 
-        // Ignore Spelling: Conf
+        public const string PROGRAM_DATE = "February 9, 2024";
 
         public static int Main(string[] args)
         {
             var programName = System.Reflection.Assembly.GetEntryAssembly()?.GetName().Name;
-            var exePath = PRISM.FileProcessor.ProcessFilesOrDirectoriesBase.GetAppPath();
+            var exePath = AppUtils.GetAppPath();
             var exeName = Path.GetFileName(exePath);
 
             var parser = new CommandLineParser<ModExtractorOptions>(programName, GetAppVersion())
             {
                 ProgramInfo = ConsoleMsgUtils.WrapParagraph(
-                              "This program parses a MaxQuant parameter file (XML-based) to extract the nodes that define static and dynamic mods."),
+                              "This program parses a MaxQuant parameter file (XML-based) to extract the nodes that define static and dynamic mods. " +
+                              "Alternatively, it can be used to add/remove/replace parameters in a MaxQuant parameter file created by an older version of MaxQuant."),
                 ContactInfo = "Program written by Matthew Monroe for PNNL (Richland, WA)" + Environment.NewLine +
                               "E-mail: matthew.monroe@pnnl.gov or proteomics@pnnl.gov" + Environment.NewLine +
                               "Website: https://github.com/PNNL-Comp-Mass-Spec/ or https://panomics.pnnl.gov/ or https://www.pnnl.gov/integrative-omics"
@@ -32,7 +33,9 @@ namespace MaxQuantParamFileModExtractor
             // ReSharper disable StringLiteralTypo
 
             parser.UsageExamples.Add(exeName + " MaxQuant_Tryp_Stat_CysAlk_Dyn_MetOx_NTermAcet_20ppmParTol.xml");
+            parser.UsageExamples.Add(exeName + " MaxQuant_Tryp_Stat_CysAlk_Dyn_MetOx_NTermAcet_20ppmParTol.xml /Update");
             parser.UsageExamples.Add(exeName + " /I:MaxQuant*.xml");
+            parser.UsageExamples.Add(exeName + " /I:MaxQuant*.xml /Update");
 
             // ReSharper restore StringLiteralTypo
 
@@ -51,7 +54,7 @@ namespace MaxQuantParamFileModExtractor
                     return 0;
                 }
 
-                // Delay for 750 msec in case the user double clicked this file from within Windows Explorer (or started the program via a shortcut)
+                // Delay for 750 msec in case the user double-clicked this file from within Windows Explorer (or started the program via a shortcut)
                 System.Threading.Thread.Sleep(750);
                 return -1;
             }

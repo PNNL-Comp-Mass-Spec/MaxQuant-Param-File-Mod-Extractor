@@ -26,6 +26,7 @@
     <Prefer32Bit>false</Prefer32Bit>
     <DocumentationFile>bin\MaxQuantParamFileModExtractor.xml</DocumentationFile>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <NoWarn>IDE0028</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -37,6 +38,7 @@
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
     <DocumentationFile>bin\Release\MaxQuantParamFileModExtractor.xml</DocumentationFile>
+    <NoWarn>IDE0028</NoWarn>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -49,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="MaxQuantModExtractor.cs" />
     <Compile Include="ModExtractorOptions.cs" />
     <Compile Include="ParameterUpdateInfo.cs" />
